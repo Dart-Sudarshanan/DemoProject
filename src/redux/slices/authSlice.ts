@@ -1,9 +1,9 @@
-import { createAction, createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 const userData = [
     {
         name: "Sudar",
-        email: "sudarshanan@dartinnovations.net",
+        email: "sudar@gmail.com",
         password: "aa1122",
         token: "shudhd23def2r2f23",
     },
@@ -15,7 +15,7 @@ const userData = [
     }
 ]
 
-interface UserModel{
+interface AuthUserModel{
     name: string;
     email: string;
     password: string;
@@ -23,31 +23,14 @@ interface UserModel{
 }
 
 type UserState = {
-    user: UserModel,
+    user: AuthUserModel|{},
     error: string|undefined
-}
-
-interface LoginAction{
-    readonly type: 'ON_LOGIN',
-    payload: UserModel
-}
-
-interface LogoutAction{
-    readonly type: 'ON_LOGOUT',
-    payload: any
-}
-
-interface ErrorAction{
-    readonly type: 'ON_ERROR',
-    payload: any
 }
 
 const initialState = {
     user: {} as UserState,
     error: undefined,
 }
-
-type UserAction = LoginAction|LogoutAction|ErrorAction;
 
 const authSlice = createSlice({
     name: 'auth',

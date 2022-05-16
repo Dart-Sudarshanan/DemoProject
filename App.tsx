@@ -31,7 +31,7 @@ const App = ():React.ReactElement => {
     <Provider store={store}>
       <NavigationContainer>
           <Stack.Navigator >
-            <Stack.Screen name='Login' options={{headerShown: false}} component={LoginScreen} />
+            {/* <Stack.Screen name='Login' options={{headerShown: false}} component={LoginScreen} /> */}
             <Stack.Screen name='Home' component={HomeScreen} />
             <Stack.Screen name='About' component={AboutScreen} />
             <Stack.Screen name='Credit' component={CreditScreen} />

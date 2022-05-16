@@ -1,41 +1,47 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
 
-interface TextInputFieldProps{
-    label: string,
-    placeholder: string,
-    isSecure: boolean,
-    onTextChange: Function
+import { StyleSheet, Text,TextInput, View } from "react-native";
+
+const TextInputField = (props:any) =>{
+
+  // const {touched,error} = props.meta;
+
+  // const isError = () =>{
+  //   return touched && error ? <Text>{error}</Text>: <></>
+  // }
+
+  return(
+    <View style={styles.container}>
+      <Text style={styles.labels}>{props.label}</Text>
+      <View>
+        <TextInput
+          style={styles.textInput}
+          {...props}
+          value = {props.input.value}
+          onChangeText = {props.input.onChange}
+          onBlur = {props.input.onBlur}
+          onFocus = {props.input.onFocus}
+        />
+      </View>
+      {/* {isError()} */}
+    </View>
+  );
 }
 
-export const TextInputField: React.FC<TextInputFieldProps> =({label="",placeholder,isSecure=false,onTextChange}) =>{
-    return(
-            <View style={styles.container}>
-                {label?
-                    <Text style={styles.labels}>{label}</Text>:""
-                }
-                <TextInput 
-                    style={styles.textInput}
-                    placeholder={placeholder}
-                    secureTextEntry={isSecure}
-                    onChangeText={(text) => onTextChange(text)}
-                />
-            </View>
-    )
-}
+export default TextInputField;
 
 const styles = StyleSheet.create({
-    container: {
-        margin: 10,
-    },
-    labels: {
-        fontSize: 18,
-        fontWeight: '400'
-    },
-    textInput: {
-        borderWidth: 2,
-        borderRadius: 8,
-        borderColor: '#a39d9d',
-        padding:10
-    }
+  container: {
+    margin: 10,
+  },
+  labels: {
+    fontSize: 18,
+    fontWeight: '400'
+  },
+  textInput: {
+    borderWidth: 2,
+    borderRadius: 8,
+    borderColor: '#a39d9d',
+    padding:10
+  }
 })
