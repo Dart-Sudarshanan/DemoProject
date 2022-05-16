@@ -6,11 +6,11 @@ import { fetchCounter } from "../redux/slices/counterSlice";
 import { counterList } from "../redux/store";
 
 const UserBlock = ({data}:{data:number},...props:any):React.ReactElement => {
-    return(
-        <View style={styles.list} key={"user-list-"}>
-          <Text>{data}</Text>
-        </View>
-    );
+  return(
+    <View style={styles.list} key={"user-list-"}>
+      <Text>{data}</Text>
+    </View>
+  );
 }
 
 const AboutScreen = ({ navigation }:{navigation:any}):React.ReactElement => {
@@ -23,7 +23,6 @@ const AboutScreen = ({ navigation }:{navigation:any}):React.ReactElement => {
   }, [dispatch])
 
   const getUserList = () =>{
-      console.log(counter.page)
       dispatch(fetchCounter(counter.page+1));
   }
 

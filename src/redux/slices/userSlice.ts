@@ -35,29 +35,29 @@ const initialState = {
 }
 
 const usersSlice = createSlice({
-    name: 'user',
-    initialState,
-    reducers:{
-        getUsers: state => {
-            state.isLoading = true
-        },
-        getUserSuccess: (state,{payload}) => {
-            state.users = {
-                page:payload.page,
-                per_page:payload.per_page,
-                total:payload.total,
-                total_pages:payload.total_pages,
-                data:[...state.users.data , ...payload.data]
-                // data:payload.data
-            }
-            state.isLoading = false
-            state.hasError = false
-        },
-        getUserFailure: state =>{
-            state.isLoading = false
-            state.hasError = true
-        }
+  name: 'user',
+  initialState,
+  reducers:{
+    getUsers: state => {
+      state.isLoading = true
+    },
+    getUserSuccess: (state,{payload}) => {
+      state.users = {
+        page:payload.page,
+        per_page:payload.per_page,
+        total:payload.total,
+        total_pages:payload.total_pages,
+        data:[...state.users.data , ...payload.data]
+        // data:payload.data
+      }
+      state.isLoading = false
+      state.hasError = false
+    },
+    getUserFailure: state =>{
+      state.isLoading = false
+      state.hasError = true
     }
+  }
 });
 
 export const {getUsers,getUserSuccess,getUserFailure} = usersSlice.actions;
@@ -65,18 +65,16 @@ export const {getUsers,getUserSuccess,getUserFailure} = usersSlice.actions;
 export default usersSlice.reducer;
 
 export function fetchUser(page:number){
-    return async (dispatch:any) => {
-        dispatch(getUsers());
+  return async (dispatch:any) => {
+    dispatch(getUsers());
 
-        try {
-            // const response = await fetch("https://jsonplaceholder.typicode.com/users");
-            const response = await fetch(`https://reqres.in/api/users?page=${page}`);
-            const userData = await response.json();
-            // console.log(userData);
-            dispatch(getUserSuccess(userData));
-        } catch (error) {
-            // console.log(error)
-            dispatch(getUserFailure());
-        }
+    try {
+      // const response = await fetch("https://jsonplaceholder.typicode.com/users");
+      const response = await fetch(`https://reqres.in/api/users?page=${page}`);
+      const userData = await response.json();
+      dispatch(getUserSuccess(userData));
+    } catch (error) {
+      dispatch(getUserFailure());
     }
+  }
 }

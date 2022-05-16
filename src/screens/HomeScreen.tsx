@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-import { Pressable, ScrollView, StyleSheet, Text, View,FlatList, TouchableOpacity } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, Text, View,FlatList, TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../redux/slices/userSlice";
 import { userList } from "../redux/store";
@@ -22,8 +21,6 @@ const UserBlock = ({data}:{data:any},...props:any):React.ReactElement => {
 
 const HomeScreen = ({ navigation }:{navigation:any}):React.ReactElement => {
 
-  // const [_usersList,setUsersList] = useState([]);
-
   const dispatch = useDispatch();
   const {users,isLoading,hasError} = useSelector(userList);
 
@@ -32,7 +29,6 @@ const HomeScreen = ({ navigation }:{navigation:any}):React.ReactElement => {
   }, [dispatch])
 
   const getUserList = () =>{
-    // console.log("shgdajsdhsadh",users.data);
     if(users.page !== users.total_pages)
       dispatch(fetchUser(users.page+1));
   }

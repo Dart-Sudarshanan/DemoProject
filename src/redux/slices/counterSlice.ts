@@ -59,10 +59,8 @@ export function fetchCounter(page:number){
         dispatch(getCounter());
 
         try {
-            console.log(page);
             dispatch(getCounterSuccess(page));
         } catch (error) {
-            // console.log(error)
             dispatch(getCounterFailure());
         }
     }

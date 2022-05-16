@@ -28,7 +28,6 @@ function UserForm(props:any){
     }, [token,error])
     
     const onSubmit = (value:any) =>{
-      // console.log("Test",value);
        dispatch(onLogin(value));
     }
 
