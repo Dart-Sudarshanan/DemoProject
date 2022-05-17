@@ -1,14 +1,21 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import UserForm from "../components/forms/UserForm";
 
-function LoginScreen({ navigation }:{navigation:any}):React.ReactElement {
-
-  return(
-    <View>
-      <UserForm navigation={navigation}/>
+function LoginScreen({ navigation }: { navigation: any }): React.ReactElement {
+  return (
+    <View style={styles.container}>
+      <UserForm navigation={navigation} />
     </View>
   );
 }
 
 export default LoginScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    height: "100%",
+    borderBottomColor: "#000",
+  },
+});

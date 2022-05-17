@@ -1,19 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
-interface UserModel{
-    "id": number,
-    "email": string,
-    "first_name": string,
-    "last_name": string,
-    "avatar":string
+interface UserModel {
+  id: number;
+  email: string;
+  name: string;
+  gender: string;
+  status: string;
 }
 
-interface UserList{
-    "page": number,
-    "per_page": number,
-    "total": number,
-    "total_pages": number,
-    "data": []
+interface UserList {
+  page: number;
+  data: [];
 }
 
 // type UserState = {
@@ -23,58 +20,52 @@ interface UserList{
 // }
 
 const initialState = {
-    users: {
-        "page": 1,
-        "per_page": null,
-        "total": null,
-        "total_pages": null,
-        "data": [] as UserModel[]
-    },
-    isLoading: false,
-    hasError: false,
-}
+  users: {
+    page: 1,
+    data: [] as UserModel[],
+  },
+  isLoading: false,
+  hasError: false,
+};
 
 const usersSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
-  reducers:{
-    getUsers: state => {
-      state.isLoading = true
+  reducers: {
+    getUsers: (state) => {
+      state.isLoading = true;
     },
-    getUserSuccess: (state,{payload}) => {
+    getUserSuccess: (state, { payload }) => {
       state.users = {
-        page:payload.page,
-        per_page:payload.per_page,
-        total:payload.total,
-        total_pages:payload.total_pages,
-        data:[...state.users.data , ...payload.data]
-        // data:payload.data
-      }
-      state.isLoading = false
-      state.hasError = false
+        page: payload.page,
+        data: [...state.users.data, ...payload.userData],
+      };
+      state.isLoading = false;
+      state.hasError = false;
     },
-    getUserFailure: state =>{
-      state.isLoading = false
-      state.hasError = true
-    }
-  }
+    getUserFailure: (state) => {
+      state.isLoading = false;
+      state.hasError = true;
+    },
+  },
 });
 
-export const {getUsers,getUserSuccess,getUserFailure} = usersSlice.actions;
+export const { getUsers, getUserSuccess, getUserFailure } = usersSlice.actions;
 
 export default usersSlice.reducer;
 
-export function fetchUser(page:number){
-  return async (dispatch:any) => {
+export function fetchUser(page: number) {
+  return async (dispatch: any) => {
     dispatch(getUsers());
 
     try {
       // const response = await fetch("https://jsonplaceholder.typicode.com/users");
-      const response = await fetch(`https://reqres.in/api/users?page=${page}`);
+      // const response = await fetch(`https://reqres.in/api/users?page=${page}`);
+      const response = await fetch(`https://gorest.co.in/public/v2/users?page=${page}`);
       const userData = await response.json();
-      dispatch(getUserSuccess(userData));
+      dispatch(getUserSuccess({ userData, page }));
     } catch (error) {
       dispatch(getUserFailure());
     }
-  }
+  };
 }

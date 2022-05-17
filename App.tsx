@@ -7,35 +7,26 @@
  *
  * @format
  */
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 /**
  * Redux methods
- */ 
-import { store } from './src/redux/store';
+ */
+import { store } from "./src/redux/store";
 
 /**
- * Created Screens 
- */ 
-import HomeScreen from './src/screens/HomeScreen';
-import AboutScreen from './src/screens/AboutScreen';
-import CreditScreen from './src/screens/CreditScreen';
-import LoginScreen from './src/screens/LoginScreen';
-import { Provider } from 'react-redux';
+ * Created Screens
+ */
+import { Provider } from "react-redux";
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
+import Navigations from "./src/components/navigation_component/Navigations";
 
-const Stack = createNativeStackNavigator();
-
-const App = ():React.ReactElement => {
+const App = (): React.ReactElement => {
   return (
     <Provider store={store}>
       <NavigationContainer>
-          <Stack.Navigator >
-            {/* <Stack.Screen name='Login' options={{headerShown: false}} component={LoginScreen} /> */}
-            {/* <Stack.Screen name='Home' component={HomeScreen} /> */}
-            <Stack.Screen name='About' component={AboutScreen} />
-            <Stack.Screen name='Credit' component={CreditScreen} />
-          </Stack.Navigator>
+        <Navigations />
       </NavigationContainer>
     </Provider>
   );

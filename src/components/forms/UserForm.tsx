@@ -1,73 +1,66 @@
 import React, { useEffect, useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import { useDispatch,useSelector } from "react-redux";
+import { StyleSheet, Text, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field } from "redux-form";
 import { onLogin } from "../../redux/slices/authSlice";
 import { authUser } from "../../redux/store";
 import { ButtonComponent } from "../input_component/ButtonComponent";
 import TextInputField from "../input_component/TextInputField";
 
-function UserForm(props:any){
+function UserForm(props: any) {
+  const [errMsg, setErrMsg] = useState("");
 
-    const[errMsg, setErrMsg] = useState('');
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
+  const { user, error } = useSelector(authUser);
 
-    const {user,error} = useSelector(authUser);
+  const { token } = user;
 
-    const {token} = user;
-
-    useEffect(() => {
-        if(token){
-            setErrMsg('');
-            props.navigation.navigate('Home');
-        }else if(error){
-            setErrMsg(error);
-        }
-    }, [token,error])
-    
-    const onSubmit = (value:any) =>{
-       dispatch(onLogin(value));
+  useEffect(() => {
+    if (token) {
+      setErrMsg("");
+      props.navigation.navigate("Home");
+    } else if (error) {
+      setErrMsg(error);
     }
+  }, [token, error]);
 
-    return (
-        <ScrollView >
-            <View style={styles.loginContainer}>
-                <Text style={styles.loginHeading}>Login</Text>
-                <View style={styles.inputWrapper}>
-                    <Field
-                      label="Username"
-                      name="email"
-                      component={TextInputField}
-                    />
-                    <Field
-                      label="Password"
-                      name="password"
-                      component={TextInputField}
-                    />
-                </View>
-                <ButtonComponent title="Log in" onPress={props.handleSubmit(onSubmit)} />
-                {errMsg ? <View>
-                    <Text>{errMsg}</Text>
-                </View>:<></>}
-            </View>
-        </ScrollView>
-    );
+  const onSubmit = (value: any) => {
+    dispatch(onLogin(value));
+  };
+
+  return (
+    <View style={styles.loginContainer}>
+      <Text style={styles.loginHeading}>Login</Text>
+      <View style={styles.inputWrapper}>
+        <Field label='Username' name='email' component={TextInputField} />
+        <Field label='Password' name='password' component={TextInputField} />
+      </View>
+      <ButtonComponent title='Log in' onPress={props.handleSubmit(onSubmit)} />
+      {errMsg ? (
+        <View>
+          <Text>{errMsg}</Text>
+        </View>
+      ) : (
+        <></>
+      )}
+    </View>
+  );
 }
 
-export default reduxForm({form:'signIn'})(UserForm);
+export default reduxForm({ form: "signIn" })(UserForm);
 
 const styles = StyleSheet.create({
-    loginContainer: {
-        paddingHorizontal: 10,
-        justifyContent: 'center'
-    },
-    loginHeading: {
-        fontSize: 24,
-        fontWeight: '700'
-    },
-    inputWrapper: {
-        marginTop: 20,
-    },
-})
+  loginContainer: {
+    paddingHorizontal: 10,
+    justifyContent: "center",
+  },
+  loginHeading: {
+    fontSize: 24,
+    fontWeight: "700",
+  },
+  inputWrapper: {
+    marginTop: 20,
+  },
+});

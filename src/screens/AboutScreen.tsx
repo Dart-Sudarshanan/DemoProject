@@ -51,6 +51,7 @@ const AboutScreen = ({ navigation }:{navigation:any}):React.ReactElement => {
             key={"list-User"}
             data={counter.data}
             onEndReached={getUserList}
+            showsVerticalScrollIndicator={false}
             renderItem={({item,index}:{item:number,index:number})=>(
               <>
                 <TouchableOpacity key={"touch"+index}>
