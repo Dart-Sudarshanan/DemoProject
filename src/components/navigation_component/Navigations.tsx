@@ -7,8 +7,5 @@ import PublicScreen from "./PublicScreen";
 export default function Navigations() {
   const { user } = useSelector(authUser);
   const { token } = user;
-
-  console.log(token);
-
   return token ? <PrivateScreen /> : <PublicScreen />;
 }
