@@ -10,19 +10,19 @@ interface UserModel {
 
 interface UserList {
   page: number;
-  data: [];
+  data: UserModel[];
 }
 
-// type UserState = {
-//     users: Array<UserList>,
-//     isLoading: boolean,
-//     hasError: boolean
-// }
+type UserState = {
+  users: UserList;
+  isLoading: boolean;
+  hasError: boolean;
+};
 
-const initialState = {
+const initialState: Readonly<UserState> = {
   users: {
     page: 1,
-    data: [] as UserModel[],
+    data: [],
   },
   isLoading: false,
   hasError: false,

@@ -5,7 +5,7 @@ import UserForm from "../components/forms/UserForm";
 function LoginScreen({ navigation }: { navigation: any }): React.ReactElement {
   return (
     <View style={styles.container}>
-      <UserForm navigation={navigation} />
+      <UserForm />
     </View>
   );
 }

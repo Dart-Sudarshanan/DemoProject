@@ -47,12 +47,6 @@ const HomeScreen = ({ navigation }: { navigation: any }): React.ReactElement => 
           <Text>Some error has occured</Text>
         </View>
       );
-    } else if (isLoading && users.page === 1) {
-      return (
-        <View>
-          <Text>Getting User list ...</Text>
-        </View>
-      );
     } else if (users) {
       if (users.data.length <= 0) {
         return (
@@ -67,7 +61,7 @@ const HomeScreen = ({ navigation }: { navigation: any }): React.ReactElement => 
             data={users.data}
             onEndReached={getUserList}
             showsVerticalScrollIndicator={false}
-            renderItem={({ item, index }: { item: {}; index: number }) => (
+            renderItem={({ item, index }) => (
               <>
                 <TouchableOpacity key={item.id}>
                   <UserBlock key={"users-" + index} data={item} />
