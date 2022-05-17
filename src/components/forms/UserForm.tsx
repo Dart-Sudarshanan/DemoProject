@@ -35,7 +35,7 @@ function UserForm(props: any) {
       <Text style={styles.loginHeading}>Login</Text>
       <View style={styles.inputWrapper}>
         <Field label='Username' name='email' component={TextInputField} />
-        <Field label='Password' name='password' component={TextInputField} />
+        <Field label='Password' name='password' secureTextEntry={true} component={TextInputField} />
       </View>
       <ButtonComponent title='Log in' onPress={props.handleSubmit(onSubmit)} />
       {errMsg ? (

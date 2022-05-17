@@ -19,7 +19,6 @@ import { store } from "./src/redux/store";
  * Created Screens
  */
 import { Provider } from "react-redux";
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
 import Navigations from "./src/components/navigation_component/Navigations";
 
 const App = (): React.ReactElement => {

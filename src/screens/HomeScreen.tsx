@@ -28,7 +28,7 @@ const UserBlock = ({ data }: { data: any }, ...props: any): React.ReactElement =
   );
 };
 
-const HomeScreen = ({ navigation }: { navigation: any }): React.ReactElement => {
+const HomeScreen = (): React.ReactElement => {
   const dispatch = useDispatch();
   const { users, isLoading, hasError } = useSelector(userList);
 
@@ -48,13 +48,13 @@ const HomeScreen = ({ navigation }: { navigation: any }): React.ReactElement => 
         </View>
       );
     } else if (users) {
-      if (users.data.length <= 0) {
+      if (users.data.length <= 0 && !isLoading) {
         return (
           <View>
             <Text>No data found.</Text>
           </View>
         );
-      } else {
+      } else if (users.data.length > 0) {
         return (
           <FlatList
             key={"list-User"}
@@ -69,6 +69,14 @@ const HomeScreen = ({ navigation }: { navigation: any }): React.ReactElement => 
               </>
             )}
           />
+        );
+      }
+
+      if (isLoading && users.page === 1) {
+        return (
+          <View>
+            <Text>Getting User list ...</Text>
+          </View>
         );
       }
     }

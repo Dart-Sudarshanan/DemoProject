@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCounter } from "../redux/slices/counterSlice";
 import { counterList } from "../redux/store";
 
-const UserBlock = ({ data }: { data: number }, ...props: any): React.ReactElement => {
+const Lists = ({ data }: { data: number }, ...props: any): React.ReactElement => {
   return (
     <View style={styles.list} key={"user-list-"}>
       <Text>{data}</Text>
@@ -50,7 +50,7 @@ const AboutScreen = ({ navigation }: { navigation: any }): React.ReactElement =>
             renderItem={({ item, index }) => (
               <>
                 <TouchableOpacity key={"touch" + index}>
-                  <UserBlock key={"users-" + index} data={item} />
+                  <Lists key={"users-" + index} data={item} />
                 </TouchableOpacity>
               </>
             )}
