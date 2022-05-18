@@ -1,8 +1,9 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import UserForm from "../components/forms/UserForm";
 
-function LoginScreen(): React.ReactElement {
+function LoginScreen() {
   return (
     <View style={styles.container}>
       <UserForm />

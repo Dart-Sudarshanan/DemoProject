@@ -4,8 +4,14 @@ import AboutScreen from "../../screens/AboutScreen";
 import CreditScreen from "../../screens/CreditScreen";
 import HomeScreen from "../../screens/HomeScreen";
 
+export type DrawerStackParams = {
+  Home: undefined;
+  About: undefined;
+  Credit: undefined;
+};
+
 export default function PrivateScreen() {
-  const Drawer = createDrawerNavigator();
+  const Drawer = createDrawerNavigator<DrawerStackParams>();
 
   return (
     <Drawer.Navigator>

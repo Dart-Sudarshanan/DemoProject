@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCounter } from "../redux/slices/counterSlice";
 import { counterList } from "../redux/store";
 
-const Lists = ({ data }: { data: number }, ...props: any): React.ReactElement => {
+const Lists = ({ data }: { data: number }) => {
   return (
     <View style={styles.list} key={"user-list-"}>
       <Text>{data}</Text>
@@ -13,7 +13,7 @@ const Lists = ({ data }: { data: number }, ...props: any): React.ReactElement =>
   );
 };
 
-const AboutScreen = ({ navigation }: { navigation: any }): React.ReactElement => {
+const AboutScreen = () => {
   const dispatch = useDispatch();
   const { counter, isLoading, hasError } = useSelector(counterList);
 

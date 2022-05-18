@@ -1,11 +1,23 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useEffect } from "react";
 
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import { DrawerStackParams } from "../components/navigation_component/PrivateScreens";
 import { fetchUser } from "../redux/slices/userSlice";
 import { userList } from "../redux/store";
 
-const UserBlock = ({ data }: { data: any }, ...props: any): React.ReactElement => {
+interface SingleUser {
+  id: number;
+  name: string;
+  gender: string;
+  email: string;
+  status: string;
+}
+
+type Props = NativeStackScreenProps<DrawerStackParams, "Home">;
+
+const UserBlock = ({ data }: { data: SingleUser }) => {
   return (
     <View style={styles.list} key={"user-list-" + data.id}>
       <View style={styles.listRow} key={"row_1_" + data.id}>
@@ -28,7 +40,7 @@ const UserBlock = ({ data }: { data: any }, ...props: any): React.ReactElement =
   );
 };
 
-const HomeScreen = (): React.ReactElement => {
+const HomeScreen = () => {
   const dispatch = useDispatch();
   const { users, isLoading, hasError } = useSelector(userList);
 

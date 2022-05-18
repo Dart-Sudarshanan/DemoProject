@@ -1,13 +1,18 @@
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
 import LoginScreen from "../../screens/LoginScreen";
 
+export type AuthNavigatorParams = {
+  Login: undefined;
+};
+
 export default function PublicScreen() {
-  const Drawer = createDrawerNavigator();
+  const authStackNavigator = createNativeStackNavigator<AuthNavigatorParams>();
 
   return (
-    <Drawer.Navigator>
-      <Drawer.Screen name='Login' options={{ headerShown: false }} component={LoginScreen} />
-    </Drawer.Navigator>
+    <authStackNavigator.Navigator>
+      <authStackNavigator.Screen name='Login' options={{ headerShown: false }} component={LoginScreen} />
+    </authStackNavigator.Navigator>
   );
 }

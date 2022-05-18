@@ -55,9 +55,8 @@ export const { getUsers, getUserSuccess, getUserFailure } = usersSlice.actions;
 export default usersSlice.reducer;
 
 export function fetchUser(page: number) {
-  return async (dispatch: any) => {
+  return async (dispatch: (arg0: { payload: UserList | undefined; type: string }) => void) => {
     dispatch(getUsers());
-
     try {
       // const response = await fetch("https://jsonplaceholder.typicode.com/users");
       // const response = await fetch(`https://reqres.in/api/users?page=${page}`);

@@ -58,9 +58,8 @@ export const { getCounter, getCounterSuccess, getCounterFailure } = counterSlice
 export default counterSlice.reducer;
 
 export function fetchCounter(page: number) {
-  return async (dispatch: any) => {
+  return async (dispatch: (arg0: { payload: number | undefined; type: string }) => void) => {
     dispatch(getCounter());
-
     try {
       dispatch(getCounterSuccess(page));
     } catch (error) {

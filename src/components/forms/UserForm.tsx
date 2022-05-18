@@ -26,7 +26,7 @@ function UserForm(props: any) {
     }
   }, [token, error]);
 
-  const onSubmit = (value: any) => {
+  const onSubmit = (value: { email: string; password: string }) => {
     dispatch(onLogin(value));
   };
 

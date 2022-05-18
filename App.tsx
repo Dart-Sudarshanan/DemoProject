@@ -21,7 +21,7 @@ import { store } from "./src/redux/store";
 import { Provider } from "react-redux";
 import Navigations from "./src/components/navigation_component/Navigations";
 
-const App = (): React.ReactElement => {
+const App = () => {
   return (
     <Provider store={store}>
       <NavigationContainer>
