@@ -8,7 +8,7 @@ import { authUser } from "../../redux/store";
 import { ButtonComponent } from "../input_component/ButtonComponent";
 import TextInputField from "../input_component/TextInputField";
 
-function UserForm(props: any) {
+function LoginForm(props: any) {
   const [errMsg, setErrMsg] = useState("");
 
   const dispatch = useDispatch();
@@ -49,7 +49,7 @@ function UserForm(props: any) {
   );
 }
 
-export default reduxForm({ form: "signIn" })(UserForm);
+export default reduxForm({ form: "signIn" })(LoginForm);
 
 const styles = StyleSheet.create({
   loginContainer: {

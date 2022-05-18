@@ -7,16 +7,18 @@ import React from "react";
 
 // Note: test renderer must be required after react-native.
 import renderer from "react-test-renderer";
-import LoginScreen from "../src/screens/LoginScreen";
 import { Provider } from "react-redux";
 import { store } from "../src/redux/store";
+import AboutScreen from "../src/screens/AboutScreen";
 
-it("Login form renders successfully", () => {
+describe("About screen", () => {
   const email = "test@gmail.com";
-  const tree = renderer.create(
-    <Provider store={store}>
-      <LoginScreen />
-    </Provider>
-  );
-  expect(tree).toMatchSnapshot();
+  it("should returns no data found", () => {
+    const tree = renderer.create(
+      <Provider store={store}>
+        <AboutScreen />
+      </Provider>
+    );
+    expect(tree).toMatchSnapshot();
+  });
 });

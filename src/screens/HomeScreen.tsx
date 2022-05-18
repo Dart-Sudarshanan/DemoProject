@@ -1,5 +1,5 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useEffect } from "react";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";

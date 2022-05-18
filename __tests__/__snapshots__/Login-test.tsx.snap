@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Form 1`] = `
+exports[`Login form renders successfully 1`] = `
 <View
   style={
     Object {
-      "borderBottomColor": "#000",
       "height": "100%",
       "justifyContent": "center",
     }

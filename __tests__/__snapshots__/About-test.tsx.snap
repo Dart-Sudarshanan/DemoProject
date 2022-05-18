@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About screen should returns no data found 1`] = `
+<View
+  style={
+    Object {
+      "marginTop": 10,
+      "paddingHorizontal": 15,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 24,
+          "fontWeight": "400",
+        }
+      }
+    >
+      Users
+    </Text>
+    <View>
+      <Text>
+        No data found.
+      </Text>
+    </View>
+  </View>
+</View>
+`;
