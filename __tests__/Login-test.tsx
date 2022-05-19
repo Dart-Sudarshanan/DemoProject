@@ -5,9 +5,6 @@
 import "react-native";
 import React from "react";
 
-// import Enzyme, { shallow } from "enzyme";
-// import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
-
 import { cleanup, fireEvent, render } from "@testing-library/react-native";
 
 // Note: test renderer must be required after react-native.

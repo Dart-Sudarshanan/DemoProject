@@ -16,31 +16,31 @@ import { FlatList } from "react-native";
 import { fetchUser } from "../src/redux/slices/userSlice";
 
 describe("Home screen", () => {
-  // it("should returns no data found", async () => {
-  //   jest.useFakeTimers();
-  //   const tree = renderer.create(
-  //     <Provider store={store}>
-  //       <HomeScreen />
-  //     </Provider>
-  //   );
-  //   expect(tree).toMatchSnapshot();
-  // });
-
-  it("flat list rendered correctly", async () => {
-    // const initialState = [{ id: 1, email: "test@test.com", name: "sudar", gender: "male", status: "active" }];
-    store.dispatch(fetchUser(store.getState().userList.users.page));
-    const rootTree = render(
+  it("should returns no data found", async () => {
+    jest.useFakeTimers();
+    const tree = renderer.create(
       <Provider store={store}>
         <HomeScreen />
       </Provider>
     );
-    // debug();
-    expect(await waitFor(() => rootTree.getByTestId("loading")));
-    // expect(await waitFor(() => rootTree.getByTestId("error-block")));
-    // expect(await waitFor(() => getByTestId("no-data")));
-    // expect(await waitFor(() => getByTestId("user-list")));
-
-    const userList = store.getState().userList;
-    console.log(userList);
+    expect(tree).toMatchSnapshot();
   });
+
+  // it("flat list rendered correctly", async () => {
+  //   // const initialState = [{ id: 1, email: "test@test.com", name: "sudar", gender: "male", status: "active" }];
+  //   store.dispatch(fetchUser(store.getState().userList.users.page));
+  //   const rootTree = render(
+  //     <Provider store={store}>
+  //       <HomeScreen />
+  //     </Provider>
+  //   );
+  //   // debug();
+  //   expect(await waitFor(() => rootTree.getByTestId("loading")));
+  //   // expect(await waitFor(() => rootTree.getByTestId("error-block")));
+  //   // expect(await waitFor(() => getByTestId("no-data")));
+  //   // expect(await waitFor(() => getByTestId("user-list")));
+
+  //   const userList = store.getState().userList;
+  //   console.log(userList);
+  // });
 });
