@@ -27,15 +27,21 @@ function LoginForm(props: any) {
   }, [token, error]);
 
   const onSubmit = (value: { email: string; password: string }) => {
-    dispatch(onLogin(value));
+    if (!value.email && !value.password) {
+      setErrMsg("Both fields are required");
+    } else if (!value.email) {
+      setErrMsg("Username is required");
+    } else if (!value.password) {
+      setErrMsg("Password is required");
+    } else {
+      dispatch(onLogin(value));
+    }
   };
 
   return (
     <View style={styles.loginContainer}>
-      <View testID='login-header'>
-        <Text style={styles.loginHeading}>Login</Text>
-      </View>
-      <View style={styles.inputWrapper}>
+      <Text style={styles.loginHeading}>Login</Text>
+      <View testID='form-wrapper' style={styles.inputWrapper}>
         <Field testID='login-input' label='Username' name='email' component={TextInputField} />
         <Field
           testID='login-input'
@@ -45,7 +51,7 @@ function LoginForm(props: any) {
           component={TextInputField}
         />
       </View>
-      <ButtonComponent title='Log in' onPress={props.handleSubmit(onSubmit)} />
+      <ButtonComponent testID='button' title='Log in' onPress={props.handleSubmit(onSubmit)} />
       {errMsg ? (
         <View>
           <Text>{errMsg}</Text>

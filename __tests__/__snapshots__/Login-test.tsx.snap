@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Form Login Successful 1`] = `
+<View
+  style={
+    Object {
+      "height": "100%",
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "justifyContent": "center",
+        "paddingHorizontal": 10,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#4d4949",
+          "fontSize": 24,
+          "fontWeight": "700",
+        }
+      }
+    >
+      Login
+    </Text>
+    <View
+      style={
+        Object {
+          "marginTop": 20,
+        }
+      }
+      testID="form-wrapper"
+    >
+      <View
+        style={
+          Object {
+            "margin": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 18,
+              "fontWeight": "400",
+            }
+          }
+        >
+          Username
+        </Text>
+        <View>
+          <TextInput
+            input={
+              Object {
+                "name": "email",
+                "onBlur": [Function],
+                "onChange": [Function],
+                "onDragStart": [Function],
+                "onDrop": [Function],
+                "onFocus": [Function],
+                "value": "sudar@gmail.com",
+              }
+            }
+            label="Username"
+            meta={
+              Object {
+                "active": false,
+                "asyncValidating": false,
+                "autofilled": false,
+                "dirty": true,
+                "dispatch": [Function],
+                "error": undefined,
+                "form": "signIn",
+                "initial": undefined,
+                "invalid": false,
+                "pristine": false,
+                "submitFailed": false,
+                "submitting": false,
+                "touched": true,
+                "valid": true,
+                "visited": false,
+                "warning": undefined,
+              }
+            }
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            style={
+              Object {
+                "borderColor": "#a39d9d",
+                "borderRadius": 8,
+                "borderWidth": 2,
+                "padding": 10,
+              }
+            }
+            testID="login-input"
+            value="sudar@gmail.com"
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "margin": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 18,
+              "fontWeight": "400",
+            }
+          }
+        >
+          Password
+        </Text>
+        <View>
+          <TextInput
+            input={
+              Object {
+                "name": "password",
+                "onBlur": [Function],
+                "onChange": [Function],
+                "onDragStart": [Function],
+                "onDrop": [Function],
+                "onFocus": [Function],
+                "value": "aa112",
+              }
+            }
+            label="Password"
+            meta={
+              Object {
+                "active": false,
+                "asyncValidating": false,
+                "autofilled": false,
+                "dirty": true,
+                "dispatch": [Function],
+                "error": undefined,
+                "form": "signIn",
+                "initial": undefined,
+                "invalid": false,
+                "pristine": false,
+                "submitFailed": false,
+                "submitting": false,
+                "touched": true,
+                "valid": true,
+                "visited": false,
+                "warning": undefined,
+              }
+            }
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            secureTextEntry={true}
+            style={
+              Object {
+                "borderColor": "#a39d9d",
+                "borderRadius": 8,
+                "borderWidth": 2,
+                "padding": 10,
+              }
+            }
+            testID="login-input"
+            value="aa112"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "margin": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#4c51e6",
+            "borderRadius": 4,
+            "paddingHorizontal": 40,
+            "paddingVertical": 10,
+          }
+        }
+        testID="button"
+      >
+        <Text
+          style={
+            Object {
+              "color": "#fff",
+              "fontSize": 18,
+              "fontWeight": "500",
+            }
+          }
+        >
+          Log in
+        </Text>
+      </View>
+    </View>
+    <View>
+      <Text>
+        Password incorrect
+      </Text>
+    </View>
+  </View>
+</View>
+`;

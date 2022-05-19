@@ -53,20 +53,21 @@ const HomeScreen = () => {
   const renderUsers = () => {
     if (hasError) {
       return (
-        <View>
+        <View testID='error-block'>
           <Text>Some error has occured</Text>
         </View>
       );
     } else if (users) {
       if (users.data.length <= 0 && !isLoading) {
         return (
-          <View>
+          <View testID='no-data'>
             <Text>No data found.</Text>
           </View>
         );
       } else if (users.data.length > 0) {
         return (
           <FlatList
+            testID='user-list'
             key={"list-User"}
             data={users.data}
             onEndReached={getUserList}
@@ -84,7 +85,7 @@ const HomeScreen = () => {
 
       if (isLoading && users.page === 1) {
         return (
-          <View>
+          <View testID='loading'>
             <Text>Getting User list ...</Text>
           </View>
         );
