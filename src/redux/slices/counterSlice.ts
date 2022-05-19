@@ -41,7 +41,6 @@ const counterSlice = createSlice({
         ...state.counter,
         page: payload,
         data: [...state.counter.data, ...temp],
-        // data:payload.data
       };
       state.isLoading = false;
       state.hasError = false;

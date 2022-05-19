@@ -82,7 +82,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   contentWrapper: {
-    // alignItems: 'center',
     justifyContent: "center",
   },
   text: {

@@ -12,8 +12,8 @@ import { store } from "../src/redux/store";
 import AboutScreen from "../src/screens/AboutScreen";
 
 describe("About screen", () => {
-  const email = "test@gmail.com";
-  it("should returns no data found", () => {
+  it("should returns no data found", async () => {
+    jest.useFakeTimers();
     const tree = renderer.create(
       <Provider store={store}>
         <AboutScreen />

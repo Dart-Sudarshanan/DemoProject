@@ -12,7 +12,8 @@ import { Provider } from "react-redux";
 import { store } from "../src/redux/store";
 
 describe("Home screen", () => {
-  it("should returns no data found", () => {
+  it("should returns no data found", async () => {
+    jest.useFakeTimers();
     const tree = renderer.create(
       <Provider store={store}>
         <HomeScreen />

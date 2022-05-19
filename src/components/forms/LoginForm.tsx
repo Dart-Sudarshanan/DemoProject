@@ -32,10 +32,18 @@ function LoginForm(props: any) {
 
   return (
     <View style={styles.loginContainer}>
-      <Text style={styles.loginHeading}>Login</Text>
+      <View testID='login-header'>
+        <Text style={styles.loginHeading}>Login</Text>
+      </View>
       <View style={styles.inputWrapper}>
-        <Field label='Username' name='email' component={TextInputField} />
-        <Field label='Password' name='password' secureTextEntry={true} component={TextInputField} />
+        <Field testID='login-input' label='Username' name='email' component={TextInputField} />
+        <Field
+          testID='login-input'
+          label='Password'
+          name='password'
+          secureTextEntry={true}
+          component={TextInputField}
+        />
       </View>
       <ButtonComponent title='Log in' onPress={props.handleSubmit(onSubmit)} />
       {errMsg ? (
@@ -59,6 +67,7 @@ const styles = StyleSheet.create({
   loginHeading: {
     fontSize: 24,
     fontWeight: "700",
+    color: "#4d4949",
   },
   inputWrapper: {
     marginTop: 20,

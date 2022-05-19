@@ -1,3 +1,4 @@
+jest.useFakeTimers();
 import React from "react";
 import { Provider } from "react-redux";
 
@@ -6,8 +7,6 @@ import { store } from "../src/redux/store";
 import CreditScreen from "../src/screens/CreditScreen";
 
 it("Credit screen renders correctly", () => {
-  const navigation = { navigate: () => {} };
-  spyOn(navigation, "navigate");
   const tree = renderer.create(
     <Provider store={store}>
       <CreditScreen />

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home screen returns no data found 1`] = `
+exports[`Home screen should returns no data found 1`] = `
 <View
   style={
     Object {

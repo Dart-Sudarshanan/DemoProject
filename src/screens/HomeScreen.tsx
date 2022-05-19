@@ -15,8 +15,6 @@ interface SingleUser {
   status: string;
 }
 
-type Props = NativeStackScreenProps<DrawerStackParams, "Home">;
-
 const UserBlock = ({ data }: { data: SingleUser }) => {
   return (
     <View style={styles.list} key={"user-list-" + data.id}>

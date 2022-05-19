@@ -58,8 +58,6 @@ export function fetchUser(page: number) {
   return async (dispatch: (arg0: { payload: UserList | undefined; type: string }) => void) => {
     dispatch(getUsers());
     try {
-      // const response = await fetch("https://jsonplaceholder.typicode.com/users");
-      // const response = await fetch(`https://reqres.in/api/users?page=${page}`);
       const response = await fetch(`https://gorest.co.in/public/v2/users?page=${page}`);
       const userData = await response.json();
       dispatch(getUserSuccess({ userData, page }));
